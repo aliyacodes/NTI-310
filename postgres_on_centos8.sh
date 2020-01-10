@@ -28,6 +28,9 @@ yum -y install httpd
 systemctl enable httpd
 systemctl start httpd
 
+yum -y install mod_ssl
+
+
 setsebool -P httpd_can_network_connect on
 setsebool -P httpd_can_network_connect_db on
 
