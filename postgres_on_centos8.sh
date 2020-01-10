@@ -8,7 +8,8 @@ sed -i 's,host    all             all             127.0.0.1/32            ident,
 sed -i 's,host    all             all             ::1/128                 ident,host    all             all             ::1/128                 md5,g' /var/lib/pgsql/data/pg_hba.conf
 
 
-
+systemctl restart postgresql
+systemctl enable postgresql
 
 
 
@@ -21,7 +22,7 @@ ALTER ROLE nti310user SET timezone TO 'UTC';
 GRANT ALL PRIVILEGES ON DATABASE nti310 TO nti310user;" > /tmp/tempfile
 
 
-
+sudo -u postgres /bin/psql -f /tmp/tempfile
 
 
 
