@@ -24,7 +24,9 @@ GRANT ALL PRIVILEGES ON DATABASE nti310 TO nti310user;" > /tmp/tempfile
 
 sudo -u postgres /bin/psql -f /tmp/tempfile
 
-
+yum -y install httpd
+systemctl enable httpd
+systemctl start httpd
 
 setsebool -P httpd_can_network_connect on
 setsebool -P httpd_can_network_connect_db on
