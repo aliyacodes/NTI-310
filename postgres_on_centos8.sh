@@ -24,6 +24,7 @@ GRANT ALL PRIVILEGES ON DATABASE nti310 TO nti310user;" > /tmp/tempfile
 
 sudo -u postgres /bin/psql -f /tmp/tempfile
 
+
 yum -y install httpd
 systemctl enable httpd
 systemctl start httpd
@@ -34,6 +35,7 @@ setsebool -P httpd_can_network_connect on
 setsebool -P httpd_can_network_connect_db on
 
 sudo yum -y install php php-pgsql
+
 
 
 sed -i "s/#listen_addresses = 'localhost'/listen_addresses = '*'/g" /var/lib/pgsql/data/postgresql.conf
@@ -48,8 +50,13 @@ sudo -u postgres /bin/psql -f /tmp/phpmyadmin
 yum -y install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-8-x86_64/phpPgAdmin-5.6-11.rhel8.noarch.rpm
 
 
+
 sed -i 's/Require local/Require all granted/g' /etc/httpd/conf.d/phpPgAdmin.conf
 sed -i 's/Deny from all/Allow from all/g' /etc/httpd/conf.d/phpPgAdmin.conf
 sed -i "s/$conf\['servers'\]\[0\]\['host'\] = '';/$conf['servers'][0]['host'] = 'localhost';/g" /etc/phpPgAdmin/config.inc.php-dist
 sed -i "s/$conf\['owned_only'\] = false;/$conf['owned_only'] = true;/g" /etc/phpPgAdmin/config.inc.php-dist
 cp /etc/phpPgAdmin/config.inc.php-dist /etc/phpPgAdmin/config.inc.php
+
+systemctl restart httpd
+systemctl restart postgresql
+
