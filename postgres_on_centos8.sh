@@ -30,11 +30,10 @@ systemctl start httpd
 
 yum -y install mod_ssl
 
-
 setsebool -P httpd_can_network_connect on
 setsebool -P httpd_can_network_connect_db on
 
-
+sudo yum -y install php php-pgsql
 
 
 sed -i "s/#listen_addresses = 'localhost'/listen_addresses = '*'/g" /var/lib/pgsql/data/postgresql.conf
