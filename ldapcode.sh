@@ -45,7 +45,7 @@ chmod 0600 /root/ldap_admin_pass
 echo -e "dn: olcDatabase={2}hdb,cn=config
 changetype: modify
 replace: oclSuffix
-oclSuffix: dc=nti310,dc=local
+olcSuffix: dc=nti310,dc=local
 \n
 dn: olcDatabase={2}hdb,cn=config
 changetype: modify
