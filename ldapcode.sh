@@ -61,7 +61,7 @@ ldapmodify -Y EXTERNAL -H ldapi:/// -f db.ldif
 
 # Auth restriction
 
-echo 'dn: olcDatabase={1)monitor,cn=config
+echo 'dn: olcDatabase={1}monitor,cn=config
 changetype: modify
 replace: olcAccess
 olcAccess: {0}to * by dn.base="gidNumber=0+uidNumber=0,cn=peercred,cn=external, cn=auth" read by dn.base="cn=ldapadm,dc=nti310,dc=local" read by * none' > monitor.ldif
