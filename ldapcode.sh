@@ -40,7 +40,7 @@ echo "we are configuring ldap and ldapadmin"
 newsecret=$(slappasswd -g)
 newhash=$(slappasswd -s "$newsecret")
 echo -n "$newsecret" > /root/ldap_admin_pass
-chmodd 0600 /root/ldap_admin_pass
+chmod 0600 /root/ldap_admin_pass
 
 echo -e "dn: olcDatabase={2}hdb,cn=config
 changetype: modify
