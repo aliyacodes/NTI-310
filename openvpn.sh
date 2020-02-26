@@ -6,7 +6,7 @@ wget -O /tmp/easyrsa https://github.com/OpenVPN/easy-rsa-old/archive/2.3.3.tar.g
 tar xfz /tmp/easyrsa
 mkdir /etc/openvpn/easy-rsa
 cp -rf easy-rsa-old-2.3.3/easy-rsa/2.0/* /etc/openvpn/easy-rsa
-sudo cp /usr/share/doc/openvpn-2.4.8/smaple-config-files/server.conf /etc/openvpn
+sudo cp /usr/share/doc/openvpn-2.4.8/sample/sample-config-files/server.conf /etc/openvpn
 # vim /etc/openvpn/server.conf
 # uncomment push "redirect-gateway def1 bypass-dhcp"
 # point to google's dns servers
