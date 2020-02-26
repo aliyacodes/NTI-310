@@ -42,7 +42,7 @@ source ./vars
 ./build-dh
 cd /etc/openvpn/easy-rsa/keys
 cp dh2048.pem ca.crt server.crt server.key /etc/openvpn
-# Each client will also need a certificate in order for the OpenVPN server to authenticate it
+# Each client will also need a certificate in order for the OpenVPN server to authenticate it.
 # These keys and certificates will be created on the server and then yoou will hve to copy them over to your cients,
 # which we will do in a later step.  It's advised that you generate separate keys and certificates for each client you
 # intend to conenct to your VPN.
@@ -50,7 +50,7 @@ cp dh2048.pem ca.crt server.crt server.key /etc/openvpn
 # Build the client cert
 cd /etc/openvpn/easy-rsa
 ./build-key client
-# press enter nd y to certify the cert
+# press enter and y to certify the cert
 cp /etc/openvpn/easy-rsa/openssl-1.0.0.cnf /etc/openvpn/easy-rsa/openssl.cnf
 firewall-cmd --get-active-zones
 firewall-cmd --zone=trusted --add-service openvpn
