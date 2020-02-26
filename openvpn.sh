@@ -36,8 +36,8 @@ cd /etc/openvpn/easy-rsa
 source ./vars
 ./clean-all
 ./build-ca
-# Note, this takes manuallly pressinng enter a couple of times... how to automate...
-# so ddoes the below
+# Note, this takes manually pressing enter a couple of times... how to automate...
+# so does the below
 ./build-key-server server
 ./build-dh
 cd /etc/openvpn/easy-rsa/keys
