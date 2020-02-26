@@ -1,5 +1,5 @@
 #!/bin/bash
-# Based on the tutorial here: https://www.digitalocean.com/community/tutorials/how-to-set-up-and-configure-an-openvpn-server-on...
+# Based on the tutorial here: https://www.digitalocean.com/community/tutorials/how-to-set-up-and-configure-an-openvpn-server-on-centos-7
 sudo yum update -y
 yum install -y openvpn wget
 wget -O /tmp/easyrsa https://github.com/OpenVPN/easy-rsa-old/archive/2.3.3.tar.gz
