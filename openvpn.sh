@@ -60,7 +60,7 @@ firewall-cmd --list-services --zone=trusted
 firewall-cmd --add-masquerade
 firewall-cmd --permanent --add-masquerade
 firewall-cmd --query-masquerade 
-SHARK=$(ip route 8.8.8.8 | awk 'NR==1 {print $(NF-2)}')
+SHARK=$(ip route get 8.8.8.8 | awk 'NR==1 {print $(NF-2)}')
 firewall-cmd --permanent --direct --passthrough ipv4 -t nat -A POSTROUTING -s 10.8.0.0/24 -o $SHARK -j MASQUERADE
 firewall-cmd --reload
 # vim /etc/sysctl.conf
