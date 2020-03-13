@@ -24,14 +24,4 @@ systemctl restart nfs-server
 #install net tools to get ifconfig
 yum -y install net-tools
 
-# use ifconfig to find your IP address, you will use this for the client.
 
-# From the client (ubuntu machine)
-
-apt-get install nfs-client
-
-showmount -e 10.128.0.7 # where $ipaddress is the ip of your nfs server
-mkdir /mnt/test
-echo "10.128.0.7:/var/nfsshare/testing			/mnt/test     nfs defaults 0 0" >> /etc/fstab
-mount -a
-# *profit*
