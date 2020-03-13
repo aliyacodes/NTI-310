@@ -17,7 +17,7 @@ sed -i 's/#nss_base_passwd.[ \t]*ou=People,dc=padl,dc=com?one/nss_base_passwd   
 sed -i 's/#nss_base_shadow.[ \t]*ou=People,dc=padl,dc=com?one/nss_base_shadow        ou=People,dc=nti310,dc=local/g' /etc/ldap.conf
 
 systemctl restart sshd
-echo "pyomW3B." > /etc/ldap.secret
+echo "P@ssw0rd1" > /etc/ldap.secret
 chown 06600 /etc/ldap.secret
 systemctl restart libnss-ldap
 
