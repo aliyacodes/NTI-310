@@ -1,6 +1,6 @@
 #!/bin/bash
-yum -y install python2-pip python3-pip python2-devel python3-devel gcc postgresql-server postgresql-devel postgresql-contrib
-postgresql-setup initdb
+yum -y install python3-pip python3-pip python3-devel python3-devel gcc postgresql-server postgresql-devel postgresql-contrib
+postgresql-setup --initdb --unit postgresql
 systemctl start postgresql
 
 
@@ -47,6 +47,7 @@ GRANT ALL PRIVILEGES ON DATABASE mypgdb TO pgdbuser;" > /tmp/phpmyadmin
 
 sudo -u postgres /bin/psql -f /tmp/phpmyadmin
 
+yum install -y phpPgAdmin
 yum -y install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-8-x86_64/phpPgAdmin-5.6-11.rhel8.noarch.rpm
 
 
@@ -56,6 +57,8 @@ sed -i 's/Deny from all/Allow from all/g' /etc/httpd/conf.d/phpPgAdmin.conf
 sed -i "s/$conf\['servers'\]\[0\]\['host'\] = '';/$conf['servers'][0]['host'] = 'localhost';/g" /etc/phpPgAdmin/config.inc.php-dist
 sed -i "s/$conf\['owned_only'\] = false;/$conf['owned_only'] = true;/g" /etc/phpPgAdmin/config.inc.php-dist
 cp /etc/phpPgAdmin/config.inc.php-dist /etc/phpPgAdmin/config.inc.php
+
+yum -y install php-mbstring
 
 systemctl restart httpd
 systemctl restart postgresql
