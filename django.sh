@@ -28,9 +28,9 @@ sudo -u postgres /bin/psql -f /tmp/changeowner
 # from Django
 python manage.py startapp Cars
 echo "class Specs(models.Model):
-	name = models.CharField(max_length = 20)
-	price = models.DecimalField(max_digits=8, decimal_places=2)
-	weight = models.PositiveIntegerField()" >> Cars/models.py
+    name = models.CharField(max_length = 20)
+    price = models.DecimalField(max_digits=8, decimal_places=2)
+    weight = models.PositiveIntegerField()" >> Cars/models.py
 
 # put sed into the INSTALLED_APPS variable
 sed -i "40i \ \ \ \ 'Cars'," nti310/settings.py
